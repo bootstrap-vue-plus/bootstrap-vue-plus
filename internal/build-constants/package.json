@@ -1,0 +1,23 @@
+{
+  "name": "@bootstrap-vue-plus/build-constants",
+  "version": "0.0.0-alpha.0",
+  "description": "Build constants for Bootstrap Vue Plus",
+  "keywords": [
+    "bootstrap-vue-plus"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "unbuild",
+    "dev": "pnpm run stub",
+    "stub": "unbuild --stub"
+  },
+  "devDependencies": {
+    "unbuild": "^0.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

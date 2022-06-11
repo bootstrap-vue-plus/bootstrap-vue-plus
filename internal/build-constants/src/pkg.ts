@@ -1,0 +1,5 @@
+export const PKG_PREFIX = '@bootstrap-vue-plus'
+export const PKG_NAME = 'bootstrap-vue-plus'
+export const PKG_CAMELCASE_NAME = 'BootstrapVuePlus'
+export const PKG_CAMELCASE_LOCAL_NAME = 'BootstrapVuePlusLocale'
+export const PKG_BRAND_NAME = 'Bootstrap Vue Plus'

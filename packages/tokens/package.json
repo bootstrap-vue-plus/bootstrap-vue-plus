@@ -1,0 +1,16 @@
+{
+  "name": "@bootstrap-vue-plus/tokens",
+  "version": "0.0.0-alpha.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "types": "index.d.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}

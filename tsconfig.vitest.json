@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.web.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "types": ["node", "jsdom"]
+  },
+  "include": ["packages", "vitest.setup.ts"],
+  "exclude": ["node_modules", "dist"]
+}

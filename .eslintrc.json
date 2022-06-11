@@ -1,0 +1,4 @@
+{
+  "root": true,
+  "extends": ["@bootstrap-vue-plus/eslint-config"]
+}

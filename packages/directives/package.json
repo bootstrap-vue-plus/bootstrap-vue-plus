@@ -1,0 +1,16 @@
+{
+  "name": "@bootstrap-vue-plus/directives",
+  "version": "0.0.0-alpha.0",
+  "description": "Bootstrap Vue Plus directives",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

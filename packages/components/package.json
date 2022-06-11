@@ -1,0 +1,17 @@
+{
+  "name": "@bootstrap-vue-plus/components",
+  "version": "0.0.0-alpha.0",
+  "description": "all components are settled here",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "types": "index.d.ts",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}

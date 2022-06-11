@@ -1,0 +1,17 @@
+{
+  "name": "@bootstrap-vue-plus/hooks",
+  "version": "0.0.0-alpha.0",
+  "description": "Bootstrap Vue Plus hooks",
+  "license": "MIT",
+  "main": "index.ts",
+  "module": "index.ts",
+  "unpkg": "index.js",
+  "jsdelivr": "index.js",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
