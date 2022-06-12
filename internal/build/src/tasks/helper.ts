@@ -16,7 +16,7 @@ import type {
 } from 'components-helper'
 
 const reComponentName: ReComponentName = (title: string) =>
-  `el-${title
+  `bv-${title
     .replace(/\B([A-Z])/g, '-$1')
     .replace(/[ ]+/g, '-')
     .toLowerCase()}`
@@ -29,7 +29,7 @@ const reDocUrl: ReDocUrl = (fileName, header) => {
 }
 
 const reWebTypesSource: ReWebTypesSource = (title) => {
-  const symbol = `El${title
+  const symbol = `Bv${title
     .replaceAll(/-/g, ' ')
     .replaceAll(/^\w|\s+\w/g, (item) => {
       return item.trim().toUpperCase()

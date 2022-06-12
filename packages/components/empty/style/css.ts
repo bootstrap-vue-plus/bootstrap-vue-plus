@@ -1,2 +1,2 @@
-import '@element-plus/components/base/style/css'
-import '@element-plus/theme-chalk/bv-empty.css'
+import '@bootstrap-vue-plus/components/base/style/css'
+import '@bootstrap-vue-plus/theme-chalk/bv-empty.css'
