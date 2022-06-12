@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import clipboardCopy from 'clipboard-copy'
-import { ElMessage } from 'element-plus'
+import { BvMessage } from 'bootstrap-vue-plus'
 import * as Icons from '@element-plus/icons-vue'
 import { useLang } from '../../composables/lang'
 import localeData from '../../../i18n/component/icons.json'
@@ -14,13 +14,13 @@ const copyContent = async (content) => {
   try {
     await clipboardCopy(content)
 
-    ElMessage({
+    BvMessage({
       showClose: true,
       message: locale.value['copy-success'],
       type: 'success',
     })
   } catch {
-    ElMessage({
+    BvMessage({
       showClose: true,
       message: locale.value['copy-error'],
       type: 'error',

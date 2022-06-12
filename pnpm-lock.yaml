@@ -169,11 +169,11 @@ importers:
       '@vue/shared': ^3.2.37
       '@vueuse/core': ^8.6.0
       axios: ^0.27.2
+      bootstrap-vue-plus: workspace:*
       chalk: ^4.1.2
       clipboard-copy: ^4.0.1
       consola: ^2.15.3
       cross-env: ^7.0.3
-      element-plus: npm:element-plus@latest
       escape-html: ^1.0.3
       fast-glob: ^3.2.11
       markdown-it: ^13.0.1
@@ -200,8 +200,8 @@ importers:
       '@vue/shared': 3.2.37
       '@vueuse/core': 8.6.0_vue@3.2.37
       axios: 0.27.2
+      bootstrap-vue-plus: link:../packages/bootstrap-vue-plus
       clipboard-copy: 4.0.1
-      element-plus: 2.2.5_vue@3.2.37
       markdown-it: 13.0.1
       normalize.css: 8.0.1
       nprogress: 0.2.0
@@ -5144,31 +5144,6 @@ packages:
 
   /electron-to-chromium/1.4.147:
     resolution: {integrity: sha512-czclPqxLMPqPMkahKcske4TaS5lcznsc26ByBlEFDU8grTBVK9C5W6K9I6oEEhm4Ai4jTihGnys90xY1yjXcRg==}
-
-  /element-plus/2.2.5_vue@3.2.37:
-    resolution: {integrity: sha512-Kl0yn/PQca5YQo3M3NPBP4Xl71NQuMtDx5zNXZGVyl5FjdMujXiFB9SXKYGDUCgFU3d/Rl14vB4Fpmcl2Iz+Hw==}
-    peerDependencies:
-      vue: ^3.2.0
-    dependencies:
-      '@ctrl/tinycolor': 3.4.1
-      '@element-plus/icons-vue': 2.0.5_vue@3.2.37
-      '@floating-ui/dom': 0.5.2
-      '@popperjs/core': /@sxzz/popperjs-es/2.11.7
-      '@types/lodash': 4.14.182
-      '@types/lodash-es': 4.17.6
-      '@vueuse/core': 8.6.0_vue@3.2.37
-      async-validator: 4.1.1
-      dayjs: 1.11.3
-      escape-html: 1.0.3
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-      lodash-unified: 1.0.2_da03a4540fbd16bbaafbb96724306afd
-      memoize-one: 6.0.0
-      normalize-wheel-es: 1.1.2
-      vue: 3.2.37
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-    dev: false
 
   /emoji-regex/8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}

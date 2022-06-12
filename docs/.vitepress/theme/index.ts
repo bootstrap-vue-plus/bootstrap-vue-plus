@@ -1,4 +1,4 @@
-import ElementPlus from 'element-plus'
+import BootstrapVuePlus from 'bootstrap-vue-plus'
 
 import VPApp, { NotFound, globals } from '../vitepress'
 import { define } from '../utils/types'
@@ -10,7 +10,7 @@ export default define<Theme>({
   NotFound,
   Layout: VPApp,
   enhanceApp: ({ app }) => {
-    app.use(ElementPlus)
+    app.use(BootstrapVuePlus)
 
     globals.forEach(([name, Comp]) => {
       app.component(name, Comp)

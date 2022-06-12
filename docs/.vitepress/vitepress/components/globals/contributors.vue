@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import _contributors from '@element-plus/metadata/dist/contributors.json'
+import _contributors from '@bootstrap-vue-plus/metadata/dist/contributors.json'
 import VpLink from '../common/vp-link.vue'
 
 const props = defineProps<{ id: string }>()

@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "lib": ["WebWorker"],
     "paths": {
-      "element-plus": ["../packages/element-plus"],
+      "bootstrap-vue-plus": ["../packages/bootstrap-vue-plus"],
       "~/*": ["./.vitepress/vitepress/*"]
     },
     "types": ["../typings/components"],

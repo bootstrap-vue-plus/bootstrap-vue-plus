@@ -14,7 +14,7 @@ import {
   bsvpPackage,
   getPackageDependencies,
   projRoot,
-} from '@element-plus/build-utils'
+} from '@bootstrap-vue-plus/build-utils'
 import { MarkdownTransform } from './.vitepress/plugins/markdown-transform'
 
 import type { Alias } from 'vite'
@@ -28,11 +28,11 @@ const alias: Alias[] = [
 if (process.env.DOC_ENV !== 'production') {
   alias.push(
     {
-      find: /^element-plus(\/(es|lib))?$/,
-      replacement: path.resolve(projRoot, 'packages/element-plus/index.ts'),
+      find: /^bootstrap-vue-plus(\/(es|lib))?$/,
+      replacement: path.resolve(projRoot, 'packages/bootstrap-vue-plus/index.ts'),
     },
     {
-      find: /^element-plus\/(es|lib)\/(.*)$/,
+      find: /^bootstrap-vue-plus\/(es|lib)\/(.*)$/,
       replacement: `${path.resolve(projRoot, 'packages')}/$2`,
     }
   )
@@ -47,7 +47,7 @@ export default defineConfig(async ({ mode }) => {
   const optimizeDeps = [...new Set([...epDeps, ...docsDeps])].filter(
     (dep) =>
       !dep.startsWith('@types/') &&
-      !['@element-plus/metadata', 'element-plus'].includes(dep)
+      !['@bootstrap-vue-plus/metadata', 'bootstrap-vue-plus'].includes(dep)
   )
 
   optimizeDeps.push(
