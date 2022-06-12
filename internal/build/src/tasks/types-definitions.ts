@@ -8,7 +8,7 @@ import chalk from 'chalk'
 import { Project } from 'ts-morph'
 import {
   buildOutput,
-  epRoot,
+  bsvpRoot,
   excludeFiles,
   pkgRoot,
   projRoot,
@@ -92,7 +92,7 @@ async function addSourceFiles(project: Project) {
 
   const globSourceFile = '**/*.{js?(x),ts?(x),vue}'
   const filePaths = excludeFiles(
-    await glob([globSourceFile, '!element-plus/**/*'], {
+    await glob([globSourceFile, '!bootstrap-vue-plus/**/*'], {
       cwd: pkgRoot,
       absolute: true,
       onlyFiles: true,
@@ -100,7 +100,7 @@ async function addSourceFiles(project: Project) {
   )
   const epPaths = excludeFiles(
     await glob(globSourceFile, {
-      cwd: epRoot,
+      cwd: bsvpRoot,
       onlyFiles: true,
     })
   )
@@ -135,7 +135,7 @@ async function addSourceFiles(project: Project) {
       }
     }),
     ...epPaths.map(async (file) => {
-      const content = await fs.readFile(path.resolve(epRoot, file), 'utf-8')
+      const content = await fs.readFile(path.resolve(bsvpRoot, file), 'utf-8')
       sourceFiles.push(
         project.createSourceFile(path.resolve(pkgRoot, file), content)
       )
