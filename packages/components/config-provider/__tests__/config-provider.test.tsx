@@ -61,28 +61,28 @@ describe('config-provider', () => {
 
     it('should provide locale properly', async () => {
       expect(wrapper.find('.current-locale').text()).toBe(
-        English.el.popconfirm.confirmButtonText
+        English.bv.popconfirm.confirmButtonText
       )
       expect(wrapper.find('.opposite-locale').text()).toBe(
-        Chinese.el.popconfirm.confirmButtonText
+        Chinese.bv.popconfirm.confirmButtonText
       )
     })
 
     it('should reactively update the text on page', async () => {
       expect(wrapper.find('.current-locale').text()).toBe(
-        English.el.popconfirm.confirmButtonText
+        English.bv.popconfirm.confirmButtonText
       )
       expect(wrapper.find('.opposite-locale').text()).toBe(
-        Chinese.el.popconfirm.confirmButtonText
+        Chinese.bv.popconfirm.confirmButtonText
       )
 
       await wrapper.find('.to-zh').trigger('click')
 
       expect(wrapper.find('.current-locale').text()).toBe(
-        Chinese.el.popconfirm.confirmButtonText
+        Chinese.bv.popconfirm.confirmButtonText
       )
       expect(wrapper.find('.opposite-locale').text()).toBe(
-        English.el.popconfirm.confirmButtonText
+        English.bv.popconfirm.confirmButtonText
       )
     })
   })

@@ -1,4 +1,4 @@
-import { withInstall } from '@element-plus/utils'
+import { withInstall } from '@bootstrap-vue-plus/utils'
 
 import ConfigProvider from './src/config-provider'
 

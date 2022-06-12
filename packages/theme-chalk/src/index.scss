@@ -1,2 +1,7 @@
 @use './base.scss';
 // component styles
+@use "./badge.scss";
+@use "./button.scss";
+@use "./button-group.scss";
+@use "./config-provider.scss";
+@use "./message.scss";

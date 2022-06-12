@@ -1,1 +1,6 @@
+export * from './badge'
+export * from './button'
+export * from './config-provider'
 export * from './empty'
+export * from './icon'
+export * from './message'
