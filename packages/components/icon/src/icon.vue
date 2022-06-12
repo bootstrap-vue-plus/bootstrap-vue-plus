@@ -8,7 +8,7 @@
 import { computed } from 'vue'
 import { addUnit, isUndefined } from '@bootstrap-vue-plus/utils'
 import { useNamespace } from '@bootstrap-vue-plus/hooks'
-import { iconProps } from './icon.ts'
+import { iconProps } from './icon'
 import type { CSSProperties } from 'vue'
 
 defineOptions({

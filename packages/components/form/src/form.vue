@@ -9,7 +9,7 @@ import { computed, provide, reactive, toRefs, watch } from 'vue'
 import { debugWarn, isFunction } from '@bootstrap-vue-plus/utils'
 import { formContextKey } from '@bootstrap-vue-plus/tokens'
 import { useNamespace, useSize } from '@bootstrap-vue-plus/hooks'
-import { formEmits, formProps } from './form.ts'
+import { formEmits, formProps } from './form'
 import { filterFields, useFormLabelWidth } from './utils'
 
 import type { ValidateFieldsError } from 'async-validator'
@@ -20,7 +20,7 @@ import type {
   FormValidateCallback,
   FormValidationResult,
 } from '@bootstrap-vue-plus/tokens'
-import type { FormItemProp } from './form-item.ts'
+import type { FormItemProp } from './form-item'
 
 const COMPONENT_NAME = 'ElForm'
 defineOptions({

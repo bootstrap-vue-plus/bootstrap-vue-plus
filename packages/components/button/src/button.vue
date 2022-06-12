@@ -52,7 +52,7 @@ import {
   useSize,
 } from '@bootstrap-vue-plus/hooks'
 import { buttonGroupContextKey } from '@bootstrap-vue-plus/tokens'
-import { buttonEmits, buttonProps } from './button.ts'
+import { buttonEmits, buttonProps } from './button'
 import { useButtonCustomStyle } from './button-custom'
 
 defineOptions({

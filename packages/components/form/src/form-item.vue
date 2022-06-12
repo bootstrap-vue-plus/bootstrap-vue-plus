@@ -63,7 +63,7 @@ import {
 } from '@bootstrap-vue-plus/utils'
 import { formContextKey, formItemContextKey } from '@bootstrap-vue-plus/tokens'
 import { useId, useNamespace, useSize } from '@bootstrap-vue-plus/hooks'
-import { formItemProps } from './form-item.ts'
+import { formItemProps } from './form-item'
 import FormLabelWrap from './form-label-wrap'
 
 import type { CSSProperties } from 'vue'
@@ -74,7 +74,7 @@ import type {
   FormValidateFailure,
 } from '@bootstrap-vue-plus/tokens'
 import type { Arrayable } from '@bootstrap-vue-plus/utils'
-import type { FormItemValidateState } from './form-item.ts'
+import type { FormItemValidateState } from './form-item'
 
 defineOptions({
   name: 'BvFormItem',

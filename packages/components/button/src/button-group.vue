@@ -7,7 +7,7 @@
 import { provide, reactive, toRef } from 'vue'
 import { buttonGroupContextKey } from '@bootstrap-vue-plus/tokens'
 import { useNamespace } from '@bootstrap-vue-plus/hooks'
-import { buttonGroupProps } from './button-group.ts'
+import { buttonGroupProps } from './button-group'
 
 defineOptions({
   name: 'BvButtonGroup',

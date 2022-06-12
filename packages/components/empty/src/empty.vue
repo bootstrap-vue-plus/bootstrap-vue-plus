@@ -20,7 +20,7 @@
 import { computed } from 'vue'
 import { useLocale, useNamespace } from '@bootstrap-vue-plus/hooks'
 import ImgEmpty from './img-empty.vue'
-import { emptyProps } from './empty.ts'
+import { emptyProps } from './empty'
 
 import type { CSSProperties } from 'vue'
 

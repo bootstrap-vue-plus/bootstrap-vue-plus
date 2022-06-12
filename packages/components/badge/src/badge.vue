@@ -20,7 +20,7 @@
 import { computed } from 'vue'
 import { useNamespace } from '@bootstrap-vue-plus/hooks'
 import { isNumber } from '@bootstrap-vue-plus/utils'
-import { badgeProps } from './badge.ts'
+import { badgeProps } from './badge'
 
 defineOptions({
   name: 'BvBadge',
