@@ -6,5 +6,3 @@ export const BvBadge = withInstall(Badge)
 export default BvBadge
 
 export * from './src/badge'
-
-export type { BadgeProps } from './src/badge'
