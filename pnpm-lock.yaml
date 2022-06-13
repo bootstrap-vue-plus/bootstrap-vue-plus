@@ -169,7 +169,7 @@ importers:
       '@vue/shared': ^3.2.37
       '@vueuse/core': ^8.6.0
       axios: ^0.27.2
-      bootstrap-vue-plus: workspace:*
+      bootstrap-vue-plus: npm:bootstrap-vue-plus@latest
       chalk: ^4.1.2
       clipboard-copy: ^4.0.1
       consola: ^2.15.3

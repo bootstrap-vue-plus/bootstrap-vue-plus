@@ -9,14 +9,14 @@
     "crowdin-credentials": "tsx .vitepress/build/crowdin-credentials.ts"
   },
   "dependencies": {
+    "@bootstrap-vue-plus/metadata": "workspace:*",
     "@docsearch/js": "^3.1.0",
     "@element-plus/icons-vue": "^2.0.5",
-    "@bootstrap-vue-plus/metadata": "workspace:*",
     "@vue/shared": "^3.2.37",
     "@vueuse/core": "^8.6.0",
     "axios": "^0.27.2",
+    "bootstrap-vue-plus": "npm:bootstrap-vue-plus@latest",
     "clipboard-copy": "^4.0.1",
-    "bootstrap-vue-plus": "workspace:*",
     "markdown-it": "^13.0.1",
     "normalize.css": "^8.0.1",
     "nprogress": "^0.2.0",
@@ -24,11 +24,11 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@crowdin/cli": "^3.7.8",
-    "@docsearch/react": "^3.1.0",
     "@bootstrap-vue-plus/build": "workspace:*",
     "@bootstrap-vue-plus/build-constants": "workspace:*",
     "@bootstrap-vue-plus/build-utils": "workspace:*",
+    "@crowdin/cli": "^3.7.8",
+    "@docsearch/react": "^3.1.0",
     "@iconify-json/ri": "^1.1.2",
     "@types/markdown-it": "^12.2.3",
     "@vitejs/plugin-vue-jsx": "^1.3.10",
