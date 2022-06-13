@@ -1,11 +1,11 @@
-# `element-plus`
+# bootstrap-vue-plus
 
 > TODO: description
 
 ## Usage
 
 ```
-const elementPlus = require('element-plus');
+const bootstrapVuePlus = require('bootstrap-vue-plus');
 
 // TODO: DEMONSTRATE API
 ```
