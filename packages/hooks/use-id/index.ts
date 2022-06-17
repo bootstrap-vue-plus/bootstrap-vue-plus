@@ -35,7 +35,7 @@ usage: app.provide(ID_INJECTION_KEY, {
   const idRef = computed(
     () =>
       unref(deterministicId) ||
-      `el-id-${idInjection.prefix}-${idInjection.current++}`
+      `bv-id-${idInjection.prefix}-${idInjection.current++}`
   )
 
   return idRef

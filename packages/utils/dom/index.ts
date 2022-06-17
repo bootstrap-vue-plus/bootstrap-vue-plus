@@ -1,4 +1,5 @@
 export * from './aria'
+export * from './dom'
 export * from './event'
 export * from './position'
 export * from './resize-event'

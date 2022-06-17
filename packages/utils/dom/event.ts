@@ -57,3 +57,22 @@ export const whenMouse = (handler: WhenMouseHandler): WhenMouseHandler => {
   return (e: PointerEvent) =>
     e.pointerType === 'mouse' ? handler(e) : undefined
 }
+
+export const stopEvent = (
+  event: Event,
+  {
+    preventDefault = true,
+    propagation = true,
+    immediatePropagation = false,
+  } = {}
+) => {
+  if (preventDefault) {
+    event.preventDefault()
+  }
+  if (propagation) {
+    event.stopPropagation()
+  }
+  if (immediatePropagation) {
+    event.stopImmediatePropagation()
+  }
+}

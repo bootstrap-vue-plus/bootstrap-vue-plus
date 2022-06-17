@@ -64,8 +64,8 @@ export const config: UserConfig = {
     sidebars,
     nav,
     agolia: {
-      apiKey: '377f2b647a96d9b1d62e4780f2344da2',
-      appId: 'BH4D9OD16A',
+      apiKey: '',
+      appId: '',
     },
     features,
     langs: languages,

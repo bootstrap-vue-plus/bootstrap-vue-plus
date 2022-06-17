@@ -121,7 +121,7 @@ export const getSibling = (
   return siblings[index + distance] || null
 }
 
-export const focusNode = (el) => {
+export const focusNode = (el: any) => {
   if (!el) return
   el.focus()
   !isLeaf(el) && el.click()

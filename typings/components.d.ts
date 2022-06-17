@@ -12,6 +12,7 @@ declare module '@vue/runtime-core' {
     BvForm: typeof import('../packages/bootstrap-vue-plus')['BvForm']
     BvFormItem: typeof import('../packages/bootstrap-vue-plus')['BvFormItem']
     BvIcon: typeof import('../packages/bootstrap-vue-plus')['BvIcon']
+    BvLink: typeof import('../packages/bootstrap-vue-plus')['BvLink']
   }
 
   interface ComponentCustomProperties {

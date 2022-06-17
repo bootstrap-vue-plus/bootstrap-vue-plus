@@ -1,19 +1,19 @@
 <template>
-  <el-row class="mb-4">
-    <el-button disabled>Default</el-button>
-    <el-button type="primary" disabled>Primary</el-button>
-    <el-button type="success" disabled>Success</el-button>
-    <el-button type="info" disabled>Info</el-button>
-    <el-button type="warning" disabled>Warning</el-button>
-    <el-button type="danger" disabled>Danger</el-button>
-  </el-row>
+  <div class="mb-4">
+    <bv-button disabled>Default</bv-button>
+    <bv-button type="primary" disabled>Primary</bv-button>
+    <bv-button type="success" disabled>Success</bv-button>
+    <bv-button type="info" disabled>Info</bv-button>
+    <bv-button type="warning" disabled>Warning</bv-button>
+    <bv-button type="danger" disabled>Danger</bv-button>
+  </div>
 
-  <el-row>
-    <el-button plain disabled>Plain</el-button>
-    <el-button type="primary" plain disabled>Primary</el-button>
-    <el-button type="success" plain disabled>Success</el-button>
-    <el-button type="info" plain disabled>Info</el-button>
-    <el-button type="warning" plain disabled>Warning</el-button>
-    <el-button type="danger" plain disabled>Danger</el-button>
-  </el-row>
+  <div>
+    <bv-button plain disabled>Plain</bv-button>
+    <bv-button type="primary" plain disabled>Primary</bv-button>
+    <bv-button type="success" plain disabled>Success</bv-button>
+    <bv-button type="info" plain disabled>Info</bv-button>
+    <bv-button type="warning" plain disabled>Warning</bv-button>
+    <bv-button type="danger" plain disabled>Danger</bv-button>
+  </div>
 </template>

@@ -1,4 +1,4 @@
-import { isFunction } from '../types'
+import { isFunction } from '@vue/shared'
 
 import type { ComponentPublicInstance, Ref } from 'vue'
 
