@@ -34,7 +34,7 @@ const Link = defineComponent({
 
     const computedTag = computed(() => {
       const { to, disabled, routerComponentName } = props
-      return computeTag({ to, disabled, routerComponentName }, app)
+      return computeTag({ to, disabled, routerComponentName }, app?.proxy || {})
     })
 
     const computedRel = computed(() => {
