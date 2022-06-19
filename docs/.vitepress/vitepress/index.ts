@@ -1,5 +1,6 @@
 import 'normalize.css'
 // import 'bootstrap-vue-plus/dist/index.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 // for dev
 // reset
