@@ -1,5 +1,5 @@
 ---
-title: Button
+title: Link
 lang: en-US
 ---
 
@@ -7,21 +7,21 @@ lang: en-US
 
 Commonly used button.
 
-## Basic usage
+## Basic Usage
 
 :::demo Use `type`, `plain`, `round` and `circle` to define Button's style.
 
-button/basic
+link/basic
 
 :::
 
-## Disabled Button
+## Disabled Link
 
 The `disabled` attribute determines if the button is disabled.
 
 :::demo Use `disabled` attribute to determine whether a button is disabled. It accepts a `Boolean` value.
 
-button/disabled
+link/disabled
 
 :::
 
