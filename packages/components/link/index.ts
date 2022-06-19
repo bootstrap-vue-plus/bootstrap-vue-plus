@@ -5,3 +5,4 @@ export const BvLink = withInstall(Link)
 export default BvLink
 
 export * from './src/link'
+export * from './src/props'
