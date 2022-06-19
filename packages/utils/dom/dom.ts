@@ -11,7 +11,7 @@ export const isElement = (el: HTMLElement) =>
   !!(el && el.nodeType === Node.ELEMENT_NODE)
 
 // Get the currently active HTML element
-export const getActiveElement = (excludes = []) => {
+export const getActiveElement = (excludes: any[] = []) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const { activeElement } = DOCUMENT

@@ -10,24 +10,25 @@ const Badge = defineComponent({
     return () => {
       const { active, disabled } = props
       const link = isLink(props)
-      const tag = link ? BvLink : props.tag
       const variant = props.variant || 'secondary'
-      return h(
-        tag,
-        mergeProps(props, {
-          class: [
-            'badge',
-            `badge-${variant}`,
-            {
-              'badge-pill': props.pill,
-              active,
-              disabled,
-            },
-          ],
-          ...(link ? pluckProps(linkProps, props) : {}),
-        }),
-        link ? null : [renderSlot(slots, 'default')]
-      )
+
+      const mergedProps = mergeProps(props, {
+        class: [
+          'badge',
+          `badge-${variant}`,
+          {
+            'badge-pill': props.pill,
+            active,
+            disabled,
+          },
+        ],
+        ...(link ? pluckProps(linkProps, props) : {}),
+      })
+
+      if (link) {
+        return h(BvLink, mergedProps)
+      }
+      return h(props.tag, mergedProps, [renderSlot(slots, 'default')])
     }
   },
 })
