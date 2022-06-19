@@ -66,8 +66,8 @@
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2",
     "memoize-one": "^6.0.0",
-    "mitt": "^3.0.0",
-    "normalize-wheel-es": "^1.1.2"
+    "normalize-wheel-es": "^1.1.2",
+    "tiny-emitter": "^2.1.0"
   },
   "devDependencies": {
     "@bootstrap-vue-plus/build": "workspace:^0.0.0-alpha.0",

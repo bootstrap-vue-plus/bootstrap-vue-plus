@@ -70,14 +70,14 @@ export const isFocusable = (element: HTMLElement): boolean => {
  * @returns
  *  true if element is focused.
  */
-export const attemptFocus = (element: HTMLElement): boolean => {
-  if (!isFocusable(element)) {
-    return false
-  }
-  // Remove the old try catch block since there will be no error to be thrown
-  element.focus?.()
-  return document.activeElement === element
-}
+// export const attemptFocus = (element: HTMLElement): boolean => {
+//   if (!isFocusable(element)) {
+//     return false
+//   }
+//   // Remove the old try catch block since there will be no error to be thrown
+//   element.focus?.()
+//   return document.activeElement === element
+// }
 
 /**
  * Trigger an event

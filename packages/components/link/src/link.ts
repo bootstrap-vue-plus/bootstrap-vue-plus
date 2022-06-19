@@ -4,10 +4,13 @@ import {
   getCurrentInstance,
   h,
   provide,
+  ref,
   renderSlot,
 } from 'vue'
 import { isFunction } from '@vue/shared'
 import {
+  attemptBlur,
+  attemptFocus,
   computeHref,
   computeRel,
   computeTag,
@@ -21,16 +24,21 @@ import {
   pluckProps,
   stopEvent,
 } from '@bootstrap-vue-plus/utils'
+import emitter from 'tiny-emitter/instance'
 import { linkProps, nuxtLinkProps, routerLinkProps } from './props'
 
 const Link = defineComponent({
   name: 'BvLink',
+  inheritAttrs: false,
   props: linkProps,
-  emits: ['bv::link::clicked', 'click'],
-  setup(props, { slots, attrs, emit }) {
+  emits: ['bv::link::clicked', 'click', 'clicked::link'],
+  expose: ['focus', 'blur'],
+  setup(props, { slots, attrs, emit, expose }) {
     // init here
     const app = getCurrentInstance()
     provide('link', slots)
+
+    const el = ref<HTMLElement>()
 
     const computedTag = computed(() => {
       const { to, disabled, routerComponentName } = props
@@ -92,11 +100,12 @@ const Link = defineComponent({
 
     const isLink = computed(() => isRouterLink(computedTag.value))
 
-    const onClick = (event: Event) => {
+    const onClick = (event: any) => {
+      const { disabled } = props
       const eventIsEvent = isEvent(event)
       const isRouterLink = isLink.value
-      const suppliedHandler = attrs.onClick
-      if (eventIsEvent && props.disabled) {
+      const suppliedHandler = attrs.click
+      if (eventIsEvent && disabled) {
         // Stop event from bubbling up
         // Kill the event loop attached to this specific `EventTarget`
         // Needed to prevent `vue-router` for doing its thing
@@ -120,7 +129,9 @@ const Link = defineComponent({
             handler(...arguments)
           })
         // Emit the global `$root` click event
-        emit('bv::link::clicked', event)
+        emitter.emit('bv::link::clicked', event)
+        // TODO: Remove deprecated 'clicked::link' event with next major release
+        emitter.emit('clicked::link', event)
       }
       // Stop scroll-to-top behavior or navigation on
       // regular links when href is just '#'
@@ -129,23 +140,27 @@ const Link = defineComponent({
       }
     }
 
-    const computedListeners = computed(() => ({
-      // Transfer all listeners (native) to the root element
-      ...attrs,
-      // We want to overwrite any click handler since our callback
-      // will invoke the user supplied handler(s) if `!this.disabled`
-      onClick,
-    }))
+    const focus = () => {
+      el.value && attemptFocus(el.value)
+    }
+
+    const blur = () => {
+      el.value && attemptBlur(el.value)
+    }
+
+    expose({ focus, blur })
 
     return () => {
       return h(
         computedTag.value,
         {
+          ref: el,
           class: { active: props.active, disabled: props.disabled },
-          ...computedAttrs.value,
           ...computedProps.value,
+          ...computedAttrs.value,
           // We must use `nativeOn` for `<router-link>`/`<nuxt-link>` instead of `on`
-          [isLink.value ? 'nativeOn' : 'on']: computedListeners.value,
+          // [isLink.value ? 'nativeOn' : 'on']: computedListeners.value,
+          onClick,
         },
         [renderSlot(slots, 'default')]
       )

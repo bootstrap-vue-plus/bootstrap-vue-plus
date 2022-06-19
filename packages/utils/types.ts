@@ -33,10 +33,10 @@ export const isEmpty = (val: unknown) =>
   (isArray(val) && val.length === 0) ||
   (isObject(val) && !Object.keys(val).length)
 
-export const isElement = (e: unknown): e is Element => {
-  if (typeof Element === 'undefined') return false
-  return e instanceof Element
-}
+// export const isElement = (e: unknown): e is Element => {
+//   if (typeof Element === 'undefined') return false
+//   return e instanceof Element
+// }
 
 export const isPropAbsent = (prop: unknown): prop is null | undefined => {
   return isNil(prop)

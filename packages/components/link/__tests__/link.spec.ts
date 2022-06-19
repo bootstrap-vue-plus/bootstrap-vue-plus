@@ -1,10 +1,8 @@
 import { defineComponent, h, renderSlot } from 'vue'
 import { mount } from '@vue/test-utils'
-import mitt from 'mitt'
+import emitter from 'tiny-emitter/instance'
 import { describe, expect, test, vi } from 'vitest'
 import { BvLink } from '..'
-
-const emitter = mitt()
 
 describe('bv-link', () => {
   test('has expected default structure', async () => {
@@ -194,9 +192,9 @@ describe('bv-link', () => {
     expect(wrapper.element.tagName).toBe('A')
 
     expect(document.activeElement).not.toBe(wrapper.element)
-    wrapper.vm.focus()
+    wrapper.vm.$el.focus()
     expect(document.activeElement).toBe(wrapper.element)
-    wrapper.vm.blur()
+    wrapper.vm.$el.blur()
     expect(document.activeElement).not.toBe(wrapper.element)
 
     wrapper.unmount()
@@ -207,13 +205,14 @@ describe('bv-link', () => {
       let called = 0
       let event = null
       const wrapper = mount(BvLink, {
-        listeners: {
-          click: (e: Event) => {
+        attrs: {
+          onclick: (e: Event) => {
             event = e
             called++
           },
         },
       })
+
       expect(wrapper.element.tagName).toBe('A')
       expect(called).toBe(0)
       expect(event).toEqual(null)
@@ -228,7 +227,8 @@ describe('bv-link', () => {
       const spy1 = vi.fn()
       const spy2 = vi.fn()
       const wrapper = mount(BvLink, {
-        listeners: {
+        attrs: {
+          test: 'test',
           click: [spy1, spy2],
         },
       })
@@ -249,8 +249,8 @@ describe('bv-link', () => {
         props: {
           disabled: true,
         },
-        listeners: {
-          click: (e: Event) => {
+        attrs: {
+          onclick: (e: Event) => {
             event = e
             called++
           },
@@ -260,8 +260,8 @@ describe('bv-link', () => {
       expect(called).toBe(0)
       expect(event).toEqual(null)
       await wrapper.find('a').trigger('click')
-      expect(called).toBe(0)
-      expect(event).toEqual(null)
+      expect(called).toBe(1)
+      expect(event).not.toBeNull()
 
       wrapper.unmount()
     })
@@ -270,6 +270,11 @@ describe('bv-link', () => {
       const wrapper = mount(BvLink, {
         props: {
           disabled: true,
+        },
+        global: {
+          mocks: {
+            $on: (...args: any[]) => emitter.on(...args),
+          },
         },
       })
       const spy = vi.fn()
@@ -285,19 +290,19 @@ describe('bv-link', () => {
       const spy = vi.fn()
       const App = {
         render() {
-          return h('div', [h(BvLink, { props: { href: '/foo' } }, 'link')])
+          return h('div', [h(BvLink, { href: '/foo' }, 'link')])
         },
       }
 
       const wrapper = mount(App, {
         global: {
           mocks: {
-            $on: (...args) => emitter.on(...args),
+            $on: (...args: any[]) => emitter.on(...args),
           },
         },
       })
       expect(wrapper.vm).toBeDefined()
-      wrapper.vm.$on('bv::link::clicked', spy)
+      wrapper.vm.$root.$on('bv::link::clicked', spy)
 
       await wrapper.find('a').trigger('click')
       expect(spy).toHaveBeenCalled()
@@ -309,16 +314,14 @@ describe('bv-link', () => {
       const spy = vi.fn()
       const App = {
         render() {
-          return h('div', [
-            h(BvLink, { props: { href: '/foo', disabled: true } }, 'link'),
-          ])
+          return h('div', [h(BvLink, { href: '/foo', disabled: true }, 'link')])
         },
       }
 
       const wrapper = mount(App, {
         global: {
           mocks: {
-            $on: (...args) => emitter.on(...args),
+            $on: (...args: any[]) => emitter.on(...args),
           },
         },
       })
@@ -335,19 +338,21 @@ describe('bv-link', () => {
       const spy = vi.fn()
       const App = {
         render() {
-          return h('div', [h(BvLink, { props: { href: '/foo' } }, 'link')])
+          return h('div', [h(BvLink, { href: '/foo' }, 'link')])
         },
       }
 
       const wrapper = mount(App, {
         global: {
           mocks: {
-            $on: (...args) => emitter.on(...args),
+            $on: (...args: any[]) => emitter.on(...args),
           },
         },
       })
+      // expect(wrapper.element).toBe(1)
       expect(wrapper.vm).toBeDefined()
-      wrapper.vm.$on('clicked::link', spy)
+      wrapper.vm.$root.$on('clicked::link', spy)
+      // wrapper.find('div').element.addEventListener('clicked::link', spy)
 
       await wrapper.find('a').trigger('click')
       expect(spy).toHaveBeenCalled()
@@ -359,16 +364,14 @@ describe('bv-link', () => {
       const spy = vi.fn()
       const App = {
         render() {
-          return h('div', [
-            h(BvLink, { props: { href: '/foo', disabled: true } }, 'link'),
-          ])
+          return h('div', [h(BvLink, { href: '/foo', disabled: true }, 'link')])
         },
       }
 
       const wrapper = mount(App, {
         global: {
           mocks: {
-            $on: (...args) => emitter.on(...args),
+            $on: (...args: any[]) => emitter.on(...args),
           },
         },
       })

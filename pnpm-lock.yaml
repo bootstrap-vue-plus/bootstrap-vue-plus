@@ -59,7 +59,6 @@ importers:
       lodash-es: ^4.17.21
       lodash-unified: ^1.0.2
       memoize-one: ^6.0.0
-      mitt: ^3.0.0
       normalize-wheel-es: ^1.1.2
       npm-run-all: ^4.1.5
       prettier: ^2.6.2
@@ -68,6 +67,7 @@ importers:
       resize-observer-polyfill: ^1.5.1
       rimraf: ^3.0.2
       sass: ^1.52.2
+      tiny-emitter: ^2.1.0
       ts-morph: ^14.0.0
       tsx: ^3.4.2
       type-fest: ^2.13.0
@@ -101,8 +101,8 @@ importers:
       lodash-es: 4.17.21
       lodash-unified: 1.0.2_da03a4540fbd16bbaafbb96724306afd
       memoize-one: 6.0.0
-      mitt: 3.0.0
       normalize-wheel-es: 1.1.2
+      tiny-emitter: 2.1.0
     devDependencies:
       '@bootstrap-vue-plus/build': link:internal/build
       '@bootstrap-vue-plus/build-utils': link:internal/build-utils
@@ -8334,10 +8334,6 @@ packages:
       minipass: 2.9.0
     dev: true
 
-  /mitt/3.0.0:
-    resolution: {integrity: sha512-7dX2/10ITVyqh4aOSVI9gdape+t9l2/8QxHrFmUXu4EEUpdlxl6RudZUPZoc+zuY2hk1j7XxVroIVIan/pD/SQ==}
-    dev: false
-
   /mixin-deep/1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
     engines: {node: '>=0.10.0'}
@@ -10451,6 +10447,10 @@ packages:
   /time-stamp/1.1.0:
     resolution: {integrity: sha1-dkpaEa9QVhkhsTPztE5hhofg9cM=}
     engines: {node: '>=0.10.0'}
+
+  /tiny-emitter/2.1.0:
+    resolution: {integrity: sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==}
+    dev: false
 
   /tinypool/0.1.3:
     resolution: {integrity: sha512-2IfcQh7CP46XGWGGbdyO4pjcKqsmVqFAPcXfPxcPXmOWt9cYkTP9HcDmGgsfijYoAEc4z9qcpM/BaBz46Y9/CQ==}
