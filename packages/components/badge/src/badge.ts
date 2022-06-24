@@ -26,7 +26,7 @@ const Badge = defineComponent({
       })
 
       if (link) {
-        return h(BvLink, mergedProps)
+        return h(BvLink, mergedProps, [renderSlot(slots, 'default')])
       }
       return h(props.tag, mergedProps, [renderSlot(slots, 'default')])
     }

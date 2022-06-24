@@ -53,7 +53,7 @@ const ListGroupItem = defineComponent({
         ],
       })
       if (!button && link) {
-        return h(BvLink, mergedProps)
+        return h(BvLink, mergedProps, [renderSlot(slots, 'default')])
       }
 
       return h(button ? 'button' : props.tag, mergedProps, [
