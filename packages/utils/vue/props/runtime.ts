@@ -68,9 +68,9 @@ export const buildProp = <
             if (hasOwn(prop, 'default')) {
               allowedValues.push(defaultValue)
             }
-            valid ||= allowedValues.includes(val)
+            valid = valid || allowedValues.includes(val)
           }
-          if (validator) valid ||= validator(val)
+          if (validator) valid = valid || validator(val)
 
           if (!valid && allowedValues.length > 0) {
             const allowValuesText = [...new Set(allowedValues)]
