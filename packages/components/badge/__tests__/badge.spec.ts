@@ -128,14 +128,14 @@ describe('badge', () => {
       },
     })
 
-    expect(wrapper.element.tagName).toBe('A')
-    expect(wrapper.attributes('href')).toBeDefined()
-    expect(wrapper.attributes('href')).toBe('/foo/bar')
-    expect(wrapper.classes()).toContain('badge')
-    expect(wrapper.classes()).toContain('badge-secondary')
-    expect(wrapper.classes()).not.toContain('badge-pill')
-    expect(wrapper.classes()).not.toContain('active')
-    expect(wrapper.classes()).not.toContain('disabled')
+    expect(wrapper.find('a').exists()).toBe(true)
+    expect(wrapper.find('a').attributes('href')).toBeDefined()
+    expect(wrapper.find('a').attributes('href')).toBe('/foo/bar')
+    expect(wrapper.find('a').classes()).toContain('badge')
+    expect(wrapper.find('a').classes()).toContain('badge-secondary')
+    expect(wrapper.find('a').classes()).not.toContain('badge-pill')
+    expect(wrapper.find('a').classes()).not.toContain('active')
+    expect(wrapper.find('a').classes()).not.toContain('disabled')
 
     wrapper.unmount()
   })

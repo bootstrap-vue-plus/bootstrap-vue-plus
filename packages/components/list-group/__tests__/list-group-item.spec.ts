@@ -96,7 +96,7 @@ describe('list-group > list-group-item', () => {
       props: { href: '/foobar' },
     })
 
-    expect(wrapper.element.tagName).toBe('A')
+    expect(wrapper.find('a').exists()).toBe(true)
 
     wrapper.unmount()
   })
@@ -106,7 +106,7 @@ describe('list-group > list-group-item', () => {
       props: { href: '/foobar' },
     })
 
-    expect(wrapper.classes()).toContain('list-group-item-action')
+    expect(wrapper.find('a').classes()).toContain('list-group-item-action')
 
     wrapper.unmount()
   })
@@ -136,7 +136,7 @@ describe('list-group > list-group-item', () => {
       props: { href: '/foobar' },
     })
 
-    expect(wrapper.attributes('href')).toBe('/foobar')
+    expect(wrapper.find('a').attributes('href')).toBe('/foobar')
 
     wrapper.unmount()
   })
