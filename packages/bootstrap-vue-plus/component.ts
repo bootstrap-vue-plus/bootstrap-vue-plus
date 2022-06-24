@@ -5,6 +5,10 @@ import { BvEmpty } from '@bootstrap-vue-plus/components/empty'
 import { BvForm, BvFormItem } from '@bootstrap-vue-plus/components/form'
 import { BvIcon } from '@bootstrap-vue-plus/components/icon'
 import { BvLink } from '@bootstrap-vue-plus/components/link'
+import {
+  BvListGroup,
+  BvListGroupItem,
+} from '@bootstrap-vue-plus/components/list-group'
 
 import type { Plugin } from 'vue'
 
@@ -18,4 +22,6 @@ export default [
   BvFormItem,
   BvIcon,
   BvLink,
+  BvListGroup,
+  BvListGroupItem,
 ] as Plugin[]
