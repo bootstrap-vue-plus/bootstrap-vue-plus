@@ -1,73 +1,92 @@
-import { useSizeProp } from '@bootstrap-vue-plus/hooks'
-import { buildProps, iconPropType } from '@bootstrap-vue-plus/utils'
-import { Loading } from '@element-plus/icons-vue'
-import type { ExtractPropTypes } from 'vue'
-import type button from './button.vue'
+import { defineComponent, h, mergeProps, renderSlot } from 'vue'
+import {
+  concat,
+  isEvent,
+  isFunction,
+  stopEvent,
+} from '@bootstrap-vue-plus/utils'
+import { CODE_ENTER, CODE_SPACE } from '@bootstrap-vue-plus/constants'
+import BvLink from '../../link'
+import {
+  computeAttrs,
+  computeClass,
+  computeLinkProps,
+  handleFocus,
+  isLink,
+  isNonStandardTag,
+  isToggle,
+} from './utils'
+import { buttonProps } from './props'
 
-export const buttonTypes = [
-  'default',
-  'primary',
-  'success',
-  'warning',
-  'info',
-  'danger',
-  /**
-   * @deprecated
-   * Text type will be deprecated in the next major version (3.0.0)
-   */
-  'text',
-  '',
-] as const
-export const buttonNativeTypes = ['button', 'submit', 'reset'] as const
+const Button = defineComponent({
+  name: 'BvButton',
+  props: buttonProps,
+  setup(props, { slots, attrs }) {
+    return () => {
+      const toggle = isToggle(props)
+      const link = isLink(props)
+      const nonStandardTag = isNonStandardTag(props)
+      const hashLink = link && props.href === '#'
+      const on: Record<string, any> = {
+        onKeydown(event: any) {
+          // When the link is a `href="#"` or a non-standard tag (has `role="button"`),
+          // we add a keydown handlers for CODE_SPACE/CODE_ENTER
+          /* istanbul ignore next */
+          if (props.disabled || !(nonStandardTag || hashLink)) {
+            return
+          }
+          const { keyCode } = event
+          // Add CODE_SPACE handler for `href="#"` and CODE_ENTER handler for non-standard tags
+          if (
+            keyCode === CODE_SPACE ||
+            (keyCode === CODE_ENTER && nonStandardTag)
+          ) {
+            const target = event.currentTarget || event.target
+            stopEvent(event, { propagation: false })
+            target.click()
+          }
+        },
+        onClick(event: any) {
+          /* istanbul ignore if: blink/button disabled should handle this */
+          if (props.disabled && isEvent(event)) {
+            stopEvent(event)
+          } else if (toggle && attrs && attrs['onUpdate:pressed']) {
+            // Send `.sync` updates to any "pressed" prop (if `.sync` listeners)
+            // `concat()` will normalize the value to an array without
+            // double wrapping an array value in an array
+            concat(attrs['onUpdate:pressed']).forEach((fn: any) => {
+              if (isFunction(fn)) {
+                fn(!props.pressed)
+              }
+            })
+          }
+        },
+      }
 
-export const buttonProps = buildProps({
-  size: useSizeProp,
-  disabled: Boolean,
-  type: {
-    type: String,
-    values: buttonTypes,
-    default: '',
+      if (toggle) {
+        on.onFocusin = handleFocus
+        on.onFocusout = handleFocus
+      }
+
+      const componentData = {
+        class: computeClass(props),
+        ...computeLinkProps(props),
+        ...computeAttrs(props, attrs),
+        ...on,
+      }
+
+      if (link) {
+        return h(BvLink, mergeProps(props, componentData), [
+          renderSlot(slots, 'default'),
+        ])
+      }
+
+      return h(props.tag, mergeProps(props, componentData), [
+        renderSlot(slots, 'default'),
+      ])
+    }
   },
-  icon: {
-    type: iconPropType,
-    default: '',
-  },
-  nativeType: {
-    type: String,
-    values: buttonNativeTypes,
-    default: 'button',
-  },
-  loading: Boolean,
-  loadingIcon: {
-    type: iconPropType,
-    default: () => Loading,
-  },
-  plain: Boolean,
-  text: Boolean,
-  link: Boolean,
-  bg: Boolean,
-  autofocus: Boolean,
-  round: Boolean,
-  circle: Boolean,
-  color: String,
-  dark: Boolean,
-  autoInsertSpace: {
-    type: Boolean,
-    default: undefined,
-  },
-} as const)
-export const buttonEmits = {
-  click: (evt: MouseEvent) => evt instanceof MouseEvent,
-}
+})
 
-export type ButtonProps = ExtractPropTypes<typeof buttonProps>
-export type ButtonEmits = typeof buttonEmits
-
-export type ButtonType = ButtonProps['type']
-export type ButtonNativeType = ButtonProps['nativeType']
-
-export type ButtonInstance = InstanceType<typeof button>
-
-export interface ButtonConfigContext {
-  autoInsertSpace?: boolean
-}
+export default Button
+export type ButtonInstance = InstanceType<typeof Button>

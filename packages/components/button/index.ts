@@ -1,11 +1,10 @@
-import { withInstall, withNoopInstall } from '@bootstrap-vue-plus/utils'
-import Button from './src/button.vue'
-import ButtonGroup from './src/button-group.vue'
+import { withInstall } from '@bootstrap-vue-plus/utils'
 
-export const BvButton = withInstall(Button, {
-  ButtonGroup,
-})
-export const BvButtonGroup = withNoopInstall(ButtonGroup)
-export default BvButton
+import Button from './src/button'
+import ButtonClose from './src/button-close'
+export const BvButton = withInstall(Button)
+export const BvButtonClose = withInstall(ButtonClose)
 
 export * from './src/button'
+export * from './src/button-close'
+export * from './src/props'

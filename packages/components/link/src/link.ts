@@ -3,6 +3,7 @@ import {
   defineComponent,
   getCurrentInstance,
   h,
+  mergeProps,
   provide,
   ref,
   renderSlot,
@@ -151,9 +152,10 @@ const Link = defineComponent({
     expose({ focus, blur })
 
     return () => {
+      console.log('computedAttrs.value', computedAttrs.value)
       return h(
         computedTag.value,
-        {
+        mergeProps(props, {
           ref: el,
           class: { active: props.active, disabled: props.disabled },
           ...computedProps.value,
@@ -161,7 +163,7 @@ const Link = defineComponent({
           // We must use `nativeOn` for `<router-link>`/`<nuxt-link>` instead of `on`
           // [isLink.value ? 'nativeOn' : 'on']: computedListeners.value,
           onClick,
-        },
+        }),
         [renderSlot(slots, 'default')]
       )
     }
