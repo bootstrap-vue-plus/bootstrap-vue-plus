@@ -152,7 +152,6 @@ const Link = defineComponent({
     expose({ focus, blur })
 
     return () => {
-      console.log('computedAttrs.value', computedAttrs.value)
       return h(
         computedTag.value,
         mergeProps(props, {
