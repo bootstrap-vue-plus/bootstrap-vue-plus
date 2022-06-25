@@ -72,7 +72,7 @@ export const computeAttrs = (
     // Type only used for "real" buttons
     type: button && !link ? props.type : null,
     // Disabled only set on "real" buttons
-    disabled: button ? props.disabled : null,
+    '^disabled': button && props.disabled ? props.disabled : null,
     // We add a role of button when the tag is not a link or button for ARIA
     // Don't bork any role provided in `data.attrs` when `isLink` or `isButton`
     // Except when link has `href` of `#`

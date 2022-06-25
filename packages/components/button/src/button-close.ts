@@ -1,4 +1,4 @@
-import { defineComponent, h, renderSlot } from 'vue'
+import { defineComponent, h, mergeProps, renderSlot } from 'vue'
 import { isEvent, stopEvent } from '@bootstrap-vue-plus/utils'
 import { buttonCloseProps } from './props'
 
@@ -16,7 +16,7 @@ const ButtonClose = defineComponent({
         ],
         ...{
           type: 'button',
-          disabled: props.disabled,
+          '^disabled': props.disabled ? props.disabled : null,
           'aria-label': props.ariaLabel ? String(props.ariaLabel) : null,
         },
         onClick(event: any) {
@@ -32,7 +32,9 @@ const ButtonClose = defineComponent({
         componentData.innerHTML = props.content
       }
 
-      return h('button', componentData, [renderSlot(slots, 'default')])
+      return h('button', mergeProps(props, componentData), [
+        renderSlot(slots, 'default'),
+      ])
     }
   },
 })
