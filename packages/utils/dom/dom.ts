@@ -42,26 +42,6 @@ export const attemptBlur = (el: HTMLElement) => {
   return !isActiveElement(el)
 }
 
-// Add a class to an element
-export const addClass = (el: HTMLElement, className: string) => {
-  // We are checking for `el.classList` existence here since IE 11
-  // returns `undefined` for some elements (e.g. SVG elements)
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
-  if (className && isElement(el) && el.classList) {
-    el.classList.add(className)
-  }
-}
-
-// Remove a class from an element
-export const removeClass = (el: HTMLElement, className: string) => {
-  // We are checking for `el.classList` existence here since IE 11
-  // returns `undefined` for some elements (e.g. SVG elements)
-  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
-  if (className && isElement(el) && el.classList) {
-    el.classList.remove(className)
-  }
-}
-
 export const selectAll = (selector: string, root: any): any[] =>
   arrayFrom((isElement(root) ? root : DOCUMENT).querySelectorAll(selector))
 

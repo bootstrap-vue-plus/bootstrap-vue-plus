@@ -3,6 +3,7 @@ import { isNumber, isObject, isString } from '../types'
 import { camelize } from '../strings'
 import { entriesOf, keysOf } from '../objects'
 import { debugWarn } from '../error'
+import { isElement } from './dom'
 import type { CSSProperties } from 'vue'
 
 const SCOPE = 'utils/dom/style'
@@ -16,14 +17,24 @@ export const hasClass = (el: Element, cls: string): boolean => {
   return el.classList.contains(cls)
 }
 
-export const addClass = (el: Element, cls: string) => {
-  if (!el || !cls.trim()) return
-  el.classList.add(...classNameToArray(cls))
+// Add a class to an element
+export const addClass = (el: HTMLElement, className: string) => {
+  // We are checking for `el.classList` existence here since IE 11
+  // returns `undefined` for some elements (e.g. SVG elements)
+  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
+  if (className && isElement(el) && el.classList) {
+    el.classList.add(className)
+  }
 }
 
-export const removeClass = (el: Element, cls: string) => {
-  if (!el || !cls.trim()) return
-  el.classList.remove(...classNameToArray(cls))
+// Remove a class from an element
+export const removeClass = (el: HTMLElement, className: string) => {
+  // We are checking for `el.classList` existence here since IE 11
+  // returns `undefined` for some elements (e.g. SVG elements)
+  // See https://github.com/bootstrap-vue/bootstrap-vue/issues/2713
+  if (className && isElement(el) && el.classList) {
+    el.classList.remove(className)
+  }
 }
 
 export const getStyle = (
