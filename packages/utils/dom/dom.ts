@@ -1,4 +1,6 @@
 import { toString } from '../strings'
+import { from as arrayFrom } from '../arrays'
+import { isFunction } from '../types'
 
 export const isTag = (tag: unknown, name: unknown) =>
   toString(tag).toLowerCase() === toString(name).toLowerCase()
@@ -59,3 +61,10 @@ export const removeClass = (el: HTMLElement, className: string) => {
     el.classList.remove(className)
   }
 }
+
+export const selectAll = (selector: string, root: any): any[] =>
+  arrayFrom((isElement(root) ? root : DOCUMENT).querySelectorAll(selector))
+
+// Returns true if the parent element contains the child element
+export const contains = (parent: HTMLElement | undefined, child: HTMLElement) =>
+  parent && isFunction(parent.contains) ? parent.contains(child) : false
