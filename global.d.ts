@@ -3,7 +3,9 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BvBadge: typeof import('bootstrap-vue-plus')['BvBadge']
     BvButton: typeof import('bootstrap-vue-plus')['BvButton']
+    BvButtonClose: typeof import('bootstrap-vue-plus')['BvButtonClose']
     BvButtonGroup: typeof import('bootstrap-vue-plus')['BvButtonGroup']
+    BvButtonToolbar: typeof import('bootstrap-vue-plus')['BvButtonToolbar']
     BvConfigProvider: typeof import('bootstrap-vue-plus')['BvConfigProvider']
     BvEmpty: typeof import('bootstrap-vue-plus')['BvEmpty']
     BvForm: typeof import('bootstrap-vue-plus')['BvForm']
