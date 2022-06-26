@@ -1,4 +1,6 @@
 <template>
-  <bv-link href="https://baidu.com">Default</bv-link>
-  <bv-link href="https://google.com" disabled>Test</bv-link>
+  <bv-button>Button</bv-button>
+  <bv-button variant="danger">Button</bv-button>
+  <bv-button variant="success">Button</bv-button>
+  <bv-button variant="outline-primary">Button</bv-button>
 </template>
