@@ -11,6 +11,7 @@ import {
   BvListGroup,
   BvListGroupItem,
 } from '@bootstrap-vue-plus/components/list-group'
+import { BvTransition } from '@bootstrap-vue-plus/components/transition'
 
 import type { Plugin } from 'vue'
 
@@ -28,4 +29,5 @@ export default [
   BvLink,
   BvListGroup,
   BvListGroupItem,
+  BvTransition,
 ] as Plugin[]

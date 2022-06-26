@@ -17,6 +17,7 @@ declare module '@vue/runtime-core' {
     BvLink: typeof import('../packages/bootstrap-vue-plus')['BvLink']
     BvListGroup: typeof import('../packages/bootstrap-vue-plus')['BvListGroup']
     BvListGroupItem: typeof import('../packages/bootstrap-vue-plus')['BvListGroupItem']
+    BvTransition: typeof import('../packages/bootstrap-vue-plus')['BvTransition']
   }
 
   interface ComponentCustomProperties {

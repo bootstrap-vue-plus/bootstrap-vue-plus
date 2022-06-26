@@ -1,4 +1,5 @@
 // GlobalComponents for Volar
+
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BvBadge: typeof import('bootstrap-vue-plus')['BvBadge']
@@ -14,6 +15,7 @@ declare module '@vue/runtime-core' {
     BvLink: typeof import('bootstrap-vue-plus')['BvLink']
     BvListGroup: typeof import('bootstrap-vue-plus')['BvListGroup']
     BvListGroupItem: typeof import('bootstrap-vue-plus')['BvListGroupItem']
+    BvTransition: typeof import('bootstrap-vue-plus')['BvTransition']
   }
 
   interface ComponentCustomProperties {
