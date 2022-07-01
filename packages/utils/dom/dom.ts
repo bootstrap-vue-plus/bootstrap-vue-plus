@@ -1,3 +1,4 @@
+import { RX_HTML_TAGS } from '@bootstrap-vue-plus/constants'
 import { toString } from '../strings'
 import { from as arrayFrom } from '../arrays'
 import { isFunction } from '../types'
@@ -48,3 +49,9 @@ export const selectAll = (selector: string, root: any): any[] =>
 // Returns true if the parent element contains the child element
 export const contains = (parent: HTMLElement | undefined, child: HTMLElement) =>
   parent && isFunction(parent.contains) ? parent.contains(child) : false
+
+// Removes anything that looks like an HTML tag from the supplied string
+export const stripTags = (text = '') => String(text).replace(RX_HTML_TAGS, '')
+
+export const htmlOrText = (innerHTML: any, textContent: any) =>
+  innerHTML ? innerHTML : textContent ? textContent : null

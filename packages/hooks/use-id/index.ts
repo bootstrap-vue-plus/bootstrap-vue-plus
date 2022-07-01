@@ -1,42 +1,39 @@
-import { computed, inject, unref } from 'vue'
-import { isClient } from '@vueuse/core'
-import { debugWarn } from '@bootstrap-vue-plus/utils'
+import { computed, nextTick, onMounted, ref } from 'vue'
+import { useProp } from '../use-prop'
+import { useContext } from '../use-context'
+import type { ComputedRef } from 'vue'
 
-import type { InjectionKey, Ref } from 'vue'
-import type { MaybeRef } from '@vueuse/core'
+export const COMPONENT_UID_KEY = '_uid'
 
-export type ElIdInjectionContext = {
-  prefix: number
-  current: number
-}
+type FuncType = (s: string) => string | null
 
-const defaultIdInjection = {
-  prefix: Math.floor(Math.random() * 10000),
-  current: 0,
-}
+export const useId = (): ComputedRef<FuncType> => {
+  const idVal = useProp<string>('id')
+  const uidVal = useContext(COMPONENT_UID_KEY)
+  const localId = ref<string | null>(null)
 
-export const ID_INJECTION_KEY: InjectionKey<ElIdInjectionContext> =
-  Symbol('elIdInjection')
+  const safeId = computed(() => {
+    const id = idVal.value || localId.value
 
-export const useId = (deterministicId?: MaybeRef<string>): Ref<string> => {
-  const idInjection = inject(ID_INJECTION_KEY, defaultIdInjection)
+    // We return a function that accepts an optional suffix string
+    // So this computed prop looks and works like a method
+    // but benefits from Vue's computed prop caching
+    return (suffix: string) => {
+      if (!id) {
+        return null
+      }
+      suffix = String(suffix || '').replace(/\s+/g, '_')
+      return suffix ? `${id}_${suffix}` : id
+    }
+  })
 
-  if (!isClient && idInjection === defaultIdInjection) {
-    debugWarn(
-      'IdInjection',
-      `Looks like you are using server rendering, you must provide a id provider to ensure the hydration process to be succeed
-usage: app.provide(ID_INJECTION_KEY, {
-  prefix: number,
-  current: number,
-})`
-    )
-  }
+  onMounted(() => {
+    nextTick(() => {
+      // Update DOM with auto-generated ID after mount
+      // to prevent SSR hydration errors
+      localId.value = `__BVID__${uidVal.value}`
+    })
+  })
 
-  const idRef = computed(
-    () =>
-      unref(deterministicId) ||
-      `bv-id-${idInjection.prefix}-${idInjection.current++}`
-  )
-
-  return idRef
+  return safeId
 }

@@ -4,7 +4,13 @@ import { BvButtonGroup } from '@bootstrap-vue-plus/components/button-group'
 import { BvButtonToolbar } from '@bootstrap-vue-plus/components/button-toolbar'
 import { BvConfigProvider } from '@bootstrap-vue-plus/components/config-provider'
 import { BvEmpty } from '@bootstrap-vue-plus/components/empty'
-import { BvForm, BvFormItem } from '@bootstrap-vue-plus/components/form'
+import {
+  BvForm,
+  BvFormDatalist,
+  BvFormInvalidFeedback,
+  BvFormText,
+  BvFormValidFeedback,
+} from '@bootstrap-vue-plus/components/form'
 import { BvIcon } from '@bootstrap-vue-plus/components/icon'
 import { BvLink } from '@bootstrap-vue-plus/components/link'
 import {
@@ -24,7 +30,10 @@ export default [
   BvConfigProvider,
   BvEmpty,
   BvForm,
-  BvFormItem,
+  BvFormDatalist,
+  BvFormInvalidFeedback,
+  BvFormText,
+  BvFormValidFeedback,
   BvIcon,
   BvLink,
   BvListGroup,
