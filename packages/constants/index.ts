@@ -1,5 +1,6 @@
 export * from './aria'
 export * from './date'
+export * from './env'
 export * from './event'
 export * from './key'
 export * from './key-codes'

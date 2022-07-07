@@ -11,6 +11,7 @@ importers:
       '@bootstrap-vue-plus/directives': workspace:*
       '@bootstrap-vue-plus/eslint-config': workspace:*
       '@bootstrap-vue-plus/hooks': workspace:*
+      '@bootstrap-vue-plus/icons-vue': ^0.0.0-alpha.1
       '@bootstrap-vue-plus/locale': workspace:*
       '@bootstrap-vue-plus/test-utils': workspace:*
       '@bootstrap-vue-plus/theme-chalk': workspace:*
@@ -18,7 +19,6 @@ importers:
       '@bootstrap-vue-plus/utils': workspace:*
       '@commitlint/cli': ^17.0.2
       '@commitlint/config-conventional': ^17.0.2
-      '@element-plus/icons-vue': ^2.0.5
       '@esbuild-kit/cjs-loader': ^2.0.1
       '@floating-ui/dom': ^0.5.2
       '@pnpm/find-workspace-packages': ^4.0.10
@@ -83,12 +83,12 @@ importers:
       '@bootstrap-vue-plus/constants': link:packages/constants
       '@bootstrap-vue-plus/directives': link:packages/directives
       '@bootstrap-vue-plus/hooks': link:packages/hooks
+      '@bootstrap-vue-plus/icons-vue': 0.0.0-alpha.1_vue@3.2.37
       '@bootstrap-vue-plus/locale': link:packages/locale
       '@bootstrap-vue-plus/test-utils': link:packages/test-utils
       '@bootstrap-vue-plus/theme-chalk': link:packages/theme-chalk
       '@bootstrap-vue-plus/tokens': link:packages/tokens
       '@bootstrap-vue-plus/utils': link:packages/utils
-      '@element-plus/icons-vue': 2.0.5_vue@3.2.37
       '@floating-ui/dom': 0.5.2
       '@popperjs/core': 2.11.5
       '@types/lodash': 4.14.182
@@ -1766,6 +1766,14 @@ packages:
   /@bcoe/v8-coverage/0.2.3:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
+
+  /@bootstrap-vue-plus/icons-vue/0.0.0-alpha.1_vue@3.2.37:
+    resolution: {integrity: sha512-+KcuYCFQIEYAKZuUfHEHyUNjOLsJe63yxXQ3bLsOAF1KvW1e4d1IZLdgQdFOeqJ7q5eAW55wBLHFnKYlwcWoXQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.2.37
+    dev: false
 
   /@commitlint/cli/17.0.2:
     resolution: {integrity: sha512-Axe89Js0YzGGd4gxo3JLlF7yIdjOVpG1LbOorGc6PfYF+drBh14PvarSDLzyd2TNqdylUCq9wb9/A88ZjIdyhA==}

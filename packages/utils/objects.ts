@@ -2,6 +2,16 @@ import { get, set } from 'lodash-unified'
 import type { Entries } from 'type-fest'
 import type { Arrayable } from '.'
 
+export const assign = (...args: any[]) => Object.assign(...args)
+export const defineProperties = (
+  obj: any,
+  props: PropertyDescriptorMap & ThisType<any>
+) => Object.defineProperties(obj, props)
+export const defineProperty = (
+  obj: any,
+  prop: PropertyKey,
+  descriptor: PropertyDescriptor & ThisType<any>
+) => Object.defineProperty(obj, prop, descriptor)
 export const keysOf = <T>(arr: T) => Object.keys(arr) as Array<keyof T>
 export const entriesOf = <T>(arr: T) => Object.entries(arr) as Entries<T>
 export { hasOwn } from '@vue/shared'
@@ -45,3 +55,10 @@ export function omit<T extends object, K extends keyof T>(
     ),
   } as Omit<T, K>
 }
+
+// Convenience method to create a read-only descriptor
+export const readonlyDescriptor = () => ({
+  enumerable: true,
+  configurable: false,
+  writable: false,
+})

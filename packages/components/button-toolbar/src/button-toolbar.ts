@@ -1,12 +1,4 @@
-import {
-  computed,
-  defineComponent,
-  h,
-  mergeProps,
-  onMounted,
-  ref,
-  renderSlot,
-} from 'vue'
+import { computed, defineComponent, h, onMounted, ref, renderSlot } from 'vue'
 import {
   attemptFocus,
   contains,
