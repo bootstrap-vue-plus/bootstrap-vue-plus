@@ -13,3 +13,8 @@
 </p>
 
 <p align="center">Bootstrap Vue Plus - A Vue.js 3 UI library</p>
+
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/bootstrap-vue-plus/bootstrap-vue-plus.svg)](https://starchart.cc/bootstrap-vue-plus/bootstrap-vue-plus)
