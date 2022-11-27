@@ -76,7 +76,7 @@
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
     "@esbuild-kit/cjs-loader": "^2.0.1",
-    "@pnpm/find-workspace-packages": "^4.0.10",
+    "@pnpm/find-workspace-packages": "^5.0.0",
     "@pnpm/logger": "^4.0.0",
     "@pnpm/types": "^8.0.1",
     "@types/fs-extra": "^9.0.13",
