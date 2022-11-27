@@ -193,7 +193,7 @@ importers:
       unplugin-vue-components: ^0.19.6
       unplugin-vue-define-options: ^0.6.1
       vite: ^2.9.10
-      vite-plugin-inspect: ^0.5.0
+      vite-plugin-inspect: ^0.7.0
       vite-plugin-mkcert: ^1.7.1
       vite-plugin-pwa: ^0.13.0
       vitepress: ^0.22.4
@@ -237,7 +237,7 @@ importers:
       unplugin-vue-components: 0.19.6_vite@2.9.10+vue@3.2.37
       unplugin-vue-define-options: 0.6.1_vite@2.9.10+vue@3.2.37
       vite: 2.9.10
-      vite-plugin-inspect: 0.5.0_vite@2.9.10
+      vite-plugin-inspect: 0.7.9_vite@2.9.10
       vite-plugin-mkcert: 1.7.1
       vite-plugin-pwa: 0.13.3_vite@2.9.10
       vitepress: 0.22.4
@@ -486,7 +486,7 @@ importers:
       '@vitejs/plugin-vue': ^2.3.3
       unplugin-vue-components: ^0.19.6
       vite: ^2.9.10
-      vite-plugin-inspect: ^0.5.0
+      vite-plugin-inspect: ^0.7.0
       vite-plugin-mkcert: ^1.7.1
       vue: ^3.2.37
     dependencies:
@@ -496,7 +496,7 @@ importers:
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.10+vue@3.2.37
       unplugin-vue-components: 0.19.6_vite@2.9.10+vue@3.2.37
       vite: 2.9.10
-      vite-plugin-inspect: 0.5.0_vite@2.9.10
+      vite-plugin-inspect: 0.7.9_vite@2.9.10
       vite-plugin-mkcert: 1.7.1
 
 packages:
@@ -2761,6 +2761,20 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
 
+  /@rollup/pluginutils/5.0.2:
+    resolution: {integrity: sha512-pTd9rIsP92h+B6wWwFbW8RkZv4hiR/xKsqre4SIuAOaOEQRxi0lqLke9k2/7WegC85GgUs9pjmOjCUi3In4vwA==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+    dependencies:
+      '@types/estree': 1.0.0
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
+    dev: true
+
   /@surma/rollup-plugin-off-main-thread/2.2.3:
     resolution: {integrity: sha512-lR8q/9W7hZpMWweNiAKU7NQerBnzQQLvi8qnTDU/fxItPhtZVMbPV3lbCwjhIlNBe9Bbr5V+KHshvWmVSG9cxQ==}
     dependencies:
@@ -2828,6 +2842,10 @@ packages:
 
   /@types/estree/0.0.51:
     resolution: {integrity: sha512-CuPgU6f3eT/XgKKPqKd/gLZV1Xmvf1a2R5POBOGQa6uv82xpls89HU5zKeVoyR8XzHd1RGNOlQlvUe3CFkjWNQ==}
+
+  /@types/estree/1.0.0:
+    resolution: {integrity: sha512-WulqXMDUTYAXCjZnk6JtIHPigp55cVtDgDrO2gHRwhyJto21+1zbVCtOYB2L1F9w4qCQ0rOGWBnBe0FNTiEJIQ==}
+    dev: true
 
   /@types/expect/1.20.4:
     resolution: {integrity: sha512-Q5Vn3yjTDyCMV50TB6VRIbQNxSE4OmZR86VSbGaNpfUolm0iePBB4KdEEHmxoY5sT2+2DIvXW0rvMDP2nHZ4Mg==}
@@ -7870,6 +7888,10 @@ packages:
     resolution: {integrity: sha512-lxpCM3HTvquGxKGzHeknB/sUjuVoUElLlfYnXZT73K8geR9jQbroGlSCFBax9/0mpGoD3kzcMLnOlGQPJJNyqQ==}
     dev: true
 
+  /kolorist/1.6.0:
+    resolution: {integrity: sha512-dLkz37Ab97HWMx9KTes3Tbi3D1ln9fCAy2zr2YVExJasDRPGRaKcoE4fycWNtnCAJfjFqe0cnY+f8KT2JePEXQ==}
+    dev: true
+
   /last-run/1.1.1:
     resolution: {integrity: sha512-U/VxvpX4N/rFvPzr3qG5EtLKEnNI0emvIQB3/ecEwv+8GHaUKbIB8vxv1Oai5FAF0d0r7LXHhLLe5K/yChm5GQ==}
     engines: {node: '>= 0.10'}
@@ -10807,6 +10829,10 @@ packages:
     resolution: {integrity: sha512-/+BmBDe8GvlB2nIflWasLLAInjYG0bC9HRnfEpNi4sw77J2AJNnEVnTDReVrehoh825+Q/evF3THXTAweyam2g==}
     dev: true
 
+  /ufo/1.0.0:
+    resolution: {integrity: sha512-DRty0ZBNlJ2R59y4mEupJRKLbkLQsc4qtxjpQv78AwEDuBkaUogMc2LkeqW3HddFlw6NwnXYfdThEZOiNgkmmQ==}
+    dev: true
+
   /unbox-primitive/1.0.2:
     resolution: {integrity: sha512-61pPlCD9h51VoreyJ0BReideM3MDKMKnh6+V9L08331ipq6Q8OFXZYiqP6n/tbHx4s5I9uRhcye6BrbkizkBDw==}
     dependencies:
@@ -11348,22 +11374,24 @@ packages:
       replace-ext: 1.0.1
     dev: false
 
-  /vite-plugin-inspect/0.5.0_vite@2.9.10:
-    resolution: {integrity: sha512-eArca+5jrNx1hQL+5s79eT5Xq4VXjJcihJhK8GT/+W2GqefVxFO1WO78RnD0HPI+hKSdEFo+B4z2zeaE8DTvWQ==}
+  /vite-plugin-inspect/0.7.9_vite@2.9.10:
+    resolution: {integrity: sha512-YBI5/smKxx2gc5MrzQ8n6ztGxdtItoqumJn96d6b57SvC9aSvjMXsvzUgrR/dlVXCnpu755m1TXp3h/TsVOwJA==}
     engines: {node: '>=14'}
     peerDependencies:
-      vite: ^2.9.0
+      vite: ^3.1.0
     peerDependenciesMeta:
       vite:
         optional: true
     dependencies:
-      '@rollup/pluginutils': 4.2.1
+      '@rollup/pluginutils': 5.0.2
       debug: 4.3.4
-      kolorist: 1.5.1
+      fs-extra: 10.1.0
+      kolorist: 1.6.0
       sirv: 2.0.2
-      ufo: 0.8.4
+      ufo: 1.0.0
       vite: 2.9.10
     transitivePeerDependencies:
+      - rollup
       - supports-color
     dev: true
 
